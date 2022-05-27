@@ -125,4 +125,7 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+#-------------------------
+# Repository images
+#-------------------------
 repo_images/
