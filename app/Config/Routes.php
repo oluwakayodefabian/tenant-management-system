@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->match(['get', 'post'], 'login', "Tenant\Authentication::register");
+$routes->match(['get', 'post'], 'login', "Tenant\Authentication::login");
 
 
 $routes->group('admin', function ($routes) {
@@ -56,6 +56,9 @@ $routes->group('admin', function ($routes) {
     $routes->get("tenants/manage", "Admin\Tenants::manage_tenants");
     $routes->match(['get', 'post'], "tenants/add", "Admin\Tenants::add_tenants");
     $routes->match(['get', 'post'], "tenants/edit", "Admin\Tenants::edit_tenants");
+    $routes->add("property/manage", "Admin\Property::manage_properties");
+    $routes->match(['get', 'post'], "property/add", "Admin\Property::add_property");
+    $routes->add("property/fetch_properties", "Admin\Property::fetch_properties");
 });
 /*
  * --------------------------------------------------------------------

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Controllers\Customers;
+namespace App\Controllers\Tenant;
 
 use App\Controllers\BaseController;
 use App\Libraries\AccessControl;
 use App\Models\CustomersModel;
 use App\Models\ProfileModel;
+use App\Models\TenantsModel;
 
 class Authentication extends BaseController
 {
@@ -40,7 +41,7 @@ class Authentication extends BaseController
             if (!$this->validate('validate_customers')) {
                 $data['validation'] = $this->validator;
             } else {
-                $customersModel = new CustomersModel();
+                $customersModel = new TenantsModel();
                 if ($customersModel->insert($customer_data)) {
                     return redirect()->to(base_url('customer/login'))->with('success', 'Account Created successfully');
                 } else {
@@ -48,7 +49,7 @@ class Authentication extends BaseController
                 }
             }
         }
-        return view('customers/authentication/register', $data);
+        // return view('tenants/authentication/register', $data);
     }
     public function login()
     {
@@ -60,7 +61,7 @@ class Authentication extends BaseController
             if (!$this->validate("validate_customers_before_logging_them_in")) {
                 $data["validation"] = $this->validator;
             } else {
-                $customersModel = new CustomersModel();
+                $customersModel = new TenantsModel();
                 $customer = $customersModel->builder()->select()->getWhere(['login_id' => $login_id])->getRow();
 
                 if ($customer) {
@@ -87,7 +88,7 @@ class Authentication extends BaseController
                 }
             }
         }
-        return view('customers/authentication/login', $data);
+        return view('tenants/authentication/login', $data);
     }
 
     public function logout_customer()

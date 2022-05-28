@@ -40,7 +40,7 @@
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
-     <!-- Nav Item - Customers Collapse Menu -->
+     <!-- Nav Item - Tenants Collapse Menu -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
              <i class="fas fa-fw fa-users"></i>
@@ -50,6 +50,21 @@
          <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <a class="collapse-item" href="<?= base_url("admin/tenants/manage") ?>">Manage tenants</a>
+             </div>
+         </div>
+     </li>
+     <!-- Divider -->
+     <hr class="sidebar-divider d-none d-md-block">
+     <!-- Nav Item - Tenants Collapse Menu -->
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3" aria-expanded="true" aria-controls="collapseUtilities3">
+             <i class="fas fa-fw fa-users"></i>
+             <span>Properties</span>
+
+         </a>
+         <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <a class="collapse-item" href="<?= base_url("admin/property/manage") ?>">Manage properties</a>
              </div>
          </div>
      </li>

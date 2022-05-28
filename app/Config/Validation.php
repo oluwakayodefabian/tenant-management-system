@@ -157,7 +157,7 @@ class Validation
      *  VALIDATION RULES FOR Tenants CLASS
      * ----------------------_____________-----------------------------------
      */
-    public array $add_member = [
+    public array $add_tenant = [
         'first_name' => [
             'rules'  => 'required',
             'errors' => [
@@ -208,6 +208,111 @@ class Validation
         ],
     ];
     public array $edit_tenant = [
+        'first_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Member\'s first name is required',
+            ]
+        ],
+        'last_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Member\'s last name is required',
+            ]
+        ],
+        'gender' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You forgot to pick the tenant\'s gender',
+            ]
+        ],
+        'email_address' => [
+            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'errors' => [
+                'required' => 'Tenant\'s email address is required',
+            ]
+        ],
+        'state' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Tenant\'s state of origin is required',
+            ]
+        ],
+        'lga' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Tenant\'s local govt. area is required',
+            ]
+        ],
+        'phone_number' => [
+            'rules'  => 'required|numeric',
+            'errors' => [
+                'required' => 'Tenant\'s phone_number is required',
+            ]
+        ],
+        'property_id' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You need to assign a property to the tenant',
+            ]
+        ],
+    ];
+    /**
+     * -----------------------___________-----------------------------------
+     *  VALIDATION RULES FOR PROPERTY CLASS
+     * ----------------------_____________-----------------------------------
+     */
+    public array $validate_add_property = [
+        'first_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Member\'s first name is required',
+            ]
+        ],
+        'last_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Member\'s last name is required',
+            ]
+        ],
+        'gender' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You forgot to pick the tenant\'s gender',
+            ]
+        ],
+        'email_address' => [
+            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'errors' => [
+                'required' => 'Tenant\'s email address is required',
+            ]
+        ],
+        'state' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Tenant\'s state of origin is required',
+            ]
+        ],
+        'lga' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Tenant\'s local govt. area is required',
+            ]
+        ],
+        'phone_number' => [
+            'rules'  => 'required|numeric',
+            'errors' => [
+                'required' => 'Tenant\'s phone_number is required',
+            ]
+        ],
+        'property_id' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You need to assign a property to the tenant',
+            ]
+        ],
+    ];
+    public array $validate_edit_property = [
         'first_name' => [
             'rules'  => 'required',
             'errors' => [
