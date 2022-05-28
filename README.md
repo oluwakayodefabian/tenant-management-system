@@ -18,7 +18,7 @@ CREATE A DATABASE NAMED `tenant_mgt_system`
 open your terminal and run `php spark migrate`
 ![terminal command to add the tables created so far to your database](repo_images%5Cterminal%20cmd.PNG)
 
-### Open phpAdmin in any browser of your choice, navigate to the **tenant_mgt_system**, then click on the admin_users table and then click on the sql tab copy the sql code below, to insert data for the into the admin_users table
+### Open phpAdmin in any browser of your choice, navigate to the **tenant_mgt_system** database, then click on the admin_users table and then click on the sql tab copy the sql code below, to insert data for the into the admin_users table
 
 INSERT INTO `admin_users` (`admin_id`, `first_name`, `last_name`, `admin_email`, `admin_username`, `admin_type`, `password`, `unique_id`, `created_on`) VALUES
 (1, 'Abdulkadri ', 'Zinat', 'oluwakayodefabian@gmail.com', 'admin', 'super_admin', '$2y$10$h5gdAgLmQdtVVrC20Db0DOVhL1/C8EOKe3LgDU8ifdo7xALFzZmCC', '628f68e2da931PHdnBeq3FT1chgCE', '2022-05-26 12:40:30'),
