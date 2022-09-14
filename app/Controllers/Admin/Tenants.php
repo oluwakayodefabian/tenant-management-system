@@ -25,16 +25,16 @@ class Tenants extends BaseController
         $data['properties'] = $propertiesModel->findAll();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tenant_data = [
-                "first_name"    => $this->request->getPost('first_name'),
-                "last_name"     => $this->request->getPost('last_name'),
-                "gender"        => $this->request->getPost('gender'),
-                "email" => $this->request->getPost('residential_address'),
-                "state"         => $this->request->getPost('state'),
-                "lga"           => $this->request->getPost('lga'),
-                "phone_no"  => $this->request->getPost('phone_number'),
-                "property_id"   => $this->request->getPost('property_id'),
-                'tenant_username' => $this->request->getPost('first_name') . $this->request->getPost('last_name'),
-                'unique_id' => uniqid() . random_string()
+                "first_name"        => $this->request->getPost('first_name'),
+                "last_name"         => $this->request->getPost('last_name'),
+                "gender"            => $this->request->getPost('gender'),
+                "email"             => $this->request->getPost('residential_address'),
+                "state"             => $this->request->getPost('state'),
+                "lga"               => $this->request->getPost('lga'),
+                "phone_no"          => $this->request->getPost('phone_number'),
+                "property_id"       => $this->request->getPost('property_id'),
+                'tenant_username'   => $this->request->getPost('first_name') . $this->request->getPost('last_name'),
+                'unique_id'         => uniqid() . random_string()
             ];
 
             if (!$this->validate('add_tenant')) {

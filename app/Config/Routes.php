@@ -17,8 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
+$routes->setDefaultController('Authentication');
+$routes->setDefaultMethod('login');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -31,18 +31,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Authentication::login');
 
-$routes->match(['get', 'post'], 'login', "Tenant\Authentication::login");
+$routes->match(['get', 'post'], "/", "Authentication::login");
 
 
 $routes->group('admin', function ($routes) {
     $routes->get("dashboard", "Admin\Dashboard::index");
-    $routes->match(['get', 'post'], "register", "Admin\Authentication::register");
-    $routes->match(['get', 'post'], "login", "Admin\Authentication::login");
-    $routes->add("forget_password", "Admin\Authentication::forget_password");
-    $routes->add("change_password/(:any)", "Admin\Authentication::change_password/$1");
-    $routes->add("logout", "Admin\Authentication::logout");
+    $routes->match(['get', 'post'], "register", "Authentication::register");
+    $routes->add("forget_password", "Authentication::forget_password");
+    $routes->add("change_password/(:any)", "Authentication::change_password/$1");
+    $routes->add("logout", "Authentication::logout");
     $routes->add("users/manage", "Admin\Users::manage_users");
     $routes->add("users/fetch_users", "Admin\Users::fetch_users");
     $routes->add("users/count_users", "Admin\Users::count_users");

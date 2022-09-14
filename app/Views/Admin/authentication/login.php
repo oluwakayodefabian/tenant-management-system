@@ -30,7 +30,7 @@
                                     <?php endif; ?>
                                     <!-- // Alert messages -->
                                 </div>
-                                <?= form_open(base_url("admin/login"), ['class' => 'user']) ?>
+                                <?= form_open(base_url("authentication/login"), ['class' => 'user']) ?>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="username" aria-describedby="usernameHelp" placeholder="Enter username..." name="admin_username" value="<?= set_value('admin_username') ?>">
                                     <?php if (isset($validation)) : ?>

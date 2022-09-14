@@ -36,10 +36,10 @@
                  </div>
              </div>
          </li>
+         <!-- Divider -->
+         <hr class="sidebar-divider d-none d-md-block">
      <?php endif; ?>
 
-     <!-- Divider -->
-     <hr class="sidebar-divider d-none d-md-block">
      <!-- Nav Item - Tenants Collapse Menu -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">

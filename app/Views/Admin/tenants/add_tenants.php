@@ -161,19 +161,57 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="admin">Select a Property</label>
                                             <select class="custom-select" id="property_id" name="property_id">
-                                                <? //php foreach ($departments as $dept) : 
-                                                ?>
-                                                <option value=""></option>
-                                                <option value="<?php //$dept->id 
-                                                                ?>"><?php // $dept->dept_name 
-                                                                    ?></option>
-                                                <?php //endforeach; 
-                                                ?>
+                                                <?php foreach ($properties as $property) : ?>
+                                                    <option value=""></option>
+                                                    <option value="<?= $property->property_ ?>"><?= $property->address ?></option>
+                                                <?php endforeach; ?>
                                             </select>
 
                                             <small id="propertyHelpBlock" class="form-text text-primary">
                                                 You can select a Property that the tenant wants to be occupy
                                             </small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0 row border-right mr-2">
+                                            <div class="col-sm-6">
+                                                <label for="rent_starting_date">Rent starting date<span class="text-danger">*</span></label>
+                                                <input type="date" class="form-control" id="rent_starting_date" name="rent_starting_date" value="<?= set_value('rent_starting_date') ?>">
+                                                <?php if (isset($validation)) : ?>
+                                                    <?php if ($validation->hasError('rent_starting_date')) : ?>
+                                                        <small class="form-text text-danger"><?= $validation->getError('rent_starting_date') ?></small>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rent_starting_time">Rent starting time<span class="text-danger">*</span></label>
+                                                <input type="time" class="form-control" id="rent_starting_time" name="rent_starting_time" value="<?= set_value('rent_starting_time') ?>">
+                                                <?php if (isset($validation)) : ?>
+                                                    <?php if ($validation->hasError('rent_starting_time')) : ?>
+                                                        <small class="form-text text-danger"><?= $validation->getError('rent_starting_time') ?></small>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 row">
+                                            <div class="col-sm-6">
+                                                <label for="property_status">Rent Expiry Date<span class="text-danger">*</span></label>
+                                                <input type="date" class="form-control" id="rent_ending_date" name="rent_ending_date" value="<?= set_value('rent_ending_date') ?>">
+                                                <?php if (isset($validation)) : ?>
+                                                    <?php if ($validation->hasError('rent_ending_date')) : ?>
+                                                        <small class="form-text text-danger"><?= $validation->getError('rent_ending_date') ?></small>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="property_status">Rent Expiry time<span class="text-danger">*</span></label>
+                                                <input type="time" class="form-control" id="rent_ending_time" name="rent_ending_time" value="<?= set_value('rent_ending_time') ?>">
+                                                <?php if (isset($validation)) : ?>
+                                                    <?php if ($validation->hasError('rent_ending_time')) : ?>
+                                                        <small class="form-text text-danger"><?= $validation->getError('rent_ending_time') ?></small>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Add tenant" id="add_user_btn">

@@ -8,20 +8,20 @@ class PropertiesModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'properties';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'property_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['agent_id', 'country', 'state', 'city', 'address', 'description', 'rent_amount', 'property_image', 'property_image', 'property_status'];
 
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $createdField  = 'created_on';
+    // protected $updatedField  = 'updated_at';
+    // protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];

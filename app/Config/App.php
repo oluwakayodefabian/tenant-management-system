@@ -23,7 +23,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/tenant-management-system/public/';
+    // public $baseURL = 'http://localhost/tenant-management-system/public/';
+    public $baseURL = 'http://tenantmgtsystem.local/';
 
     /**
      * --------------------------------------------------------------------------

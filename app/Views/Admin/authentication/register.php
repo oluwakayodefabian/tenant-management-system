@@ -68,14 +68,14 @@
                                             <label for="admin_password">Password</label>
                                             <input type="text" class="form-control form-control-user" id="admin_password" name="admin_password" placeholder="Password" value="<?= uniqid(random_string('md5')) ?>">
                                             <small id="passwordHelpBlock" class="form-text text-primary">
-                                                The password above was generated automatically be the system.
+                                                The password above was generated automatically be the system. But can be change_password to user preference
                                             </small>
                                         </div>
                                         <div class="col-sm-6">
                                             <label for="admin">Choose a role for the user</label>
                                             <select class="custom-select" id="role" name="role">
-                                                <option value="sub_admin">sub admin</option>
-                                                <option value="super-admin">super admin</option>
+                                                <option value="agent">agent</option>
+                                                <option value="super_admin">super admin</option>
                                             </select>
                                         </div>
                                     </div>

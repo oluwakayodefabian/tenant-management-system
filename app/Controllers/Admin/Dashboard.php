@@ -14,8 +14,8 @@ class Dashboard extends BaseController
         $access_control->check_if_user_is_admin();
         $data = ["title" => "Dashboard"];
         $adminUserModel  = new AdminUserModel();
-
-        $data["total_no_of_admin_users"] = $adminUserModel->builder()->countAll();
+        $getAgents = $adminUserModel->builder()->getWhere(['admin_type !=' => 'super_admin'])->getResult();
+        $data["total_no_of_admin_users"] = count($getAgents);
 
         return view('admin/dashboard', $data);
     }

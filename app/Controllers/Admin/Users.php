@@ -131,10 +131,10 @@ class Users extends BaseController
         $adminModel = new AdminUserModel();
         $get_user_current_password = $adminModel->builder()->select('password')->getWhere(['unique_id' => $uniqueID])->getRow();
         $current_password = $this->request->getPost('current-password');
-        $verify_password = password_verify($current_password, $get_user_current_password->password);
         if (empty($current_password)) {
             $data['current_password_error'] = "The password you were using before is needed";
         } else {
+            $verify_password = password_verify($current_password, $get_user_current_password->password);
             if ($verify_password == true) {
                 $this->data = ["password" => password_hash($this->request->getPost("admin_password"), PASSWORD_BCRYPT)];
 

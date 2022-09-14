@@ -29,16 +29,16 @@
                 </div>
                 <!-- Page Heading -->
                 <h1 class="h3 m-4 text-gray-800">Manage Tenants</h1>
-
-                <!-- Button trigger modal -->
-                <a href="<?= base_url('admin/customer/add') ?>" class="btn btn-info my-5 mx-4">
-                    Add a Tenant
-                </a>
-
+                <?php if (session()->get('admin') != 'super_admin') : ?>
+                    <!-- Button trigger modal -->
+                    <a href="<?= base_url('admin/tenants/add') ?>" class="btn btn-info my-5 mx-4">
+                        Add a Tenant
+                    </a>
+                <?php endif; ?>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-info">List of Customers</h6>
+                        <h6 class="m-0 font-weight-bold text-info">List of Tenants</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm">

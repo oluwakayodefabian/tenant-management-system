@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Libraries\AccessControl;
@@ -94,7 +94,7 @@ class Authentication extends BaseController
                 // Prepare Message
                 $subject = 'Account Login Credentials';
                 $sender  = self::SENDER;
-                $message = "<p>Hello, {$receiver_email}, Below is the Login credentials to the account. created for you by " . getenv("SITE_NAME") . ", It is advisable you change it after you are logged in!</p>";
+                $message = "<p>Hello, {$receiver_email}, Below is the Login credentials to the account. created for you by " . 'This site' . ", It is advisable you change it after you are logged in!</p>";
                 $message .= "<p><strong>Username:</strong> $username <br/> <strong>Password:</strong> $password</p>";
                 $message .= "<p>Click link below to visit the login page:</p>";
                 $message .= '<p><a href=' . base_url() . '/admin/login' . ' style="font-size:1.5rem">Go to Login page</a></p>';
@@ -129,7 +129,7 @@ class Authentication extends BaseController
                 if ($user) {
                     $verify_password = password_verify($password, $user->password);
                     if ($user->admin_username && $verify_password) {
-                        $users    = new Users();
+                        $users    = new Admin\Users();
                         $profileModel   = new ProfileModel();
                         session()->set('user_id', $user->admin_id);
 
@@ -161,7 +161,7 @@ class Authentication extends BaseController
         $profileModel = new ProfileModel();
         $profileModel->update(session()->get('logging_activity_id'), ['logout_time' => date('Y-m-d H:i:s')]);
         session()->destroy();
-        return redirect()->to(base_url("admin/login?msg=You have logged out!"));
+        return redirect()->to(base_url("?msg=You have logged out!"));
     }
 
     public function forget_password()
@@ -258,7 +258,7 @@ class Authentication extends BaseController
                         if ($update_password) {
                             unset($_SESSION['userEmail']);
                             $tokenModel->where(['email' => $verify_token->email])->delete();
-                            return redirect()->to(base_url('admin/login'))->with('success', "Password changed successfully");
+                            return redirect()->to(base_url())->with('success', "Password changed successfully");
                         }
                     }
                 } else {

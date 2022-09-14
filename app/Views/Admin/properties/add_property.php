@@ -151,26 +151,7 @@
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="rent_starting_date">Rent starting date<span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="rent_starting_date" name="rent_starting_date" value="<?= set_value('rent_starting_date') ?>">
-                                            <?php if (isset($validation)) : ?>
-                                                <?php if ($validation->hasError('rent_starting_date')) : ?>
-                                                    <small class="form-text text-danger"><?= $validation->getError('rent_starting_date') ?></small>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label for="property_status">Rent Expiry Date<span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="rent_ending_date" name="rent_ending_date" value="<?= set_value('rent_ending_date') ?>">
-                                            <?php if (isset($validation)) : ?>
-                                                <?php if ($validation->hasError('rent_ending_date')) : ?>
-                                                    <small class="form-text text-danger"><?= $validation->getError('rent_ending_date') ?></small>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
+
                                     <div class="form-group w-100 mt-3">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
                                             <label for="property_image">add an image of the property<span class="text-danger">*</span></label>

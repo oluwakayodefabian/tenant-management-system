@@ -200,6 +200,30 @@ class Validation
                 'required' => 'Tenant\'s phone_number is required',
             ]
         ],
+        'rent_starting_date' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The starting date is required',
+            ]
+        ],
+        'rent_starting_time' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The starting time is required',
+            ]
+        ],
+        'rent_ending_date' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The ending date is required',
+            ]
+        ],
+        'rent_ending_time' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The ending time is required',
+            ]
+        ],
         'property_id' => [
             'rules'  => 'required',
             'errors' => [
@@ -250,6 +274,30 @@ class Validation
                 'required' => 'Tenant\'s phone_number is required',
             ]
         ],
+        'rent_starting_date' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The starting date is required',
+            ]
+        ],
+        'rent_starting_time' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The starting time is required',
+            ]
+        ],
+        'rent_ending_date' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The ending date is required',
+            ]
+        ],
+        'rent_ending_time' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The ending time is required',
+            ]
+        ],
         'property_id' => [
             'rules'  => 'required',
             'errors' => [
@@ -263,52 +311,60 @@ class Validation
      * ----------------------_____________-----------------------------------
      */
     public array $validate_add_property = [
-        'first_name' => [
+        'country' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Member\'s first name is required',
-            ]
-        ],
-        'last_name' => [
-            'rules'  => 'required',
-            'errors' => [
-                'required' => 'Member\'s last name is required',
-            ]
-        ],
-        'gender' => [
-            'rules'  => 'required',
-            'errors' => [
-                'required' => 'You forgot to pick the tenant\'s gender',
-            ]
-        ],
-        'email_address' => [
-            'rules'  => 'required|is_unique[tenants.email]|valid_email',
-            'errors' => [
-                'required' => 'Tenant\'s email address is required',
+                'required' => 'The country where the property is located is required',
             ]
         ],
         'state' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Tenant\'s state of origin is required',
+                'required' => 'The state where the property is located is required',
             ]
         ],
-        'lga' => [
+        'city' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Tenant\'s local govt. area is required',
+                'required' => 'The city where the property is located is required',
             ]
         ],
-        'phone_number' => [
+        'address' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The address of the property is needed',
+            ]
+        ],
+        'address' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The address of the property is needed',
+            ]
+        ],
+        'rent_amount' => [
             'rules'  => 'required|numeric',
             'errors' => [
-                'required' => 'Tenant\'s phone_number is required',
+                'required' => 'The amount to rent the property is required',
             ]
         ],
-        'property_id' => [
+        'description' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'You need to assign a property to the tenant',
+                'required' => 'There\'s no description for the property',
+            ]
+        ],
+        'property_status' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'There\'s no description for the property',
+            ]
+        ],
+        'property_image' => [
+            'rules'  => 'uploaded[property_image]|max_size[property_image, 1024]|is_image[property_image]|mime_in[property_image, image/png, image/jpg,image/jpeg]|ext_in[property_image,png,jpg,gif]',
+            'errors' => [
+                'uploaded'                => 'No file uploaded',
+                'max_size[file, 1024]'     => 'Oops, you can\'t upload a file that is more than 1mb',
+                'is_image[file]'         => 'Only Images can be uploaded'
             ]
         ],
     ];
@@ -355,6 +411,7 @@ class Validation
                 'required' => 'Tenant\'s phone_number is required',
             ]
         ],
+
         'property_id' => [
             'rules'  => 'required',
             'errors' => [

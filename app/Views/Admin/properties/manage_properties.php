@@ -29,12 +29,12 @@
                 </div>
                 <!-- Page Heading -->
                 <h1 class="h3 m-4 text-gray-800">Manage Properties</h1>
-
-                <!-- Button trigger modal -->
-                <a href="<?= base_url('admin/property/add') ?>" class="btn btn-info my-5 mx-4">
-                    Add property
-                </a>
-
+                <?php if (session()->get('admin') != 'super_admin') : ?>
+                    <!-- Button trigger modal -->
+                    <a href="<?= base_url('admin/property/add') ?>" class="btn btn-info my-5 mx-4">
+                        Add property
+                    </a>
+                <?php endif; ?>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">

@@ -11,10 +11,10 @@ class TenantsModel extends Model
     protected $primaryKey       = 'tenant_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = 'objects';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['property_id', 'first_name', 'last_name', 'email', 'tenant_username', 'password', 'gender', 'state', 'lga', 'phone_no', 'unique_id', 'created_on'];
+    protected $allowedFields    = ['property_id', 'agent_id', 'first_name', 'last_name', 'email', 'tenant_username', 'password', 'gender', 'state', 'lga', 'phone_no', 'unique_id', 'created_on', 'rent_starting_date', 'rent_ending_date'];
 
     // Dates
     protected $useTimestamps = false;

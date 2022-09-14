@@ -36,7 +36,7 @@ CI_ENVIRONMENT = development
 
 app.baseURL = 'http://tenantmgtsystem.local/'
 
-# app.baseURL = 'http://localhost/tenant-management-system/public/'
+<!-- app.baseURL = 'http://localhost/tenant-management-system/public/' -->
 
 # app.forceGlobalSecureRequests = false
 
