@@ -40,16 +40,31 @@
          <hr class="sidebar-divider d-none d-md-block">
      <?php endif; ?>
 
-     <!-- Nav Item - Tenants Collapse Menu -->
+     <!-- Nav Item - Landlords Collapse Menu -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
              <i class="fas fa-fw fa-users"></i>
-             <span>Tenants</span>
+             <span>Landlords</span>
 
          </a>
          <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
+                 <a class="collapse-item" href="<?= base_url("admin/tenants/manage") ?>">View landlords</a>
+                 <a class="collapse-item" href="<?= base_url("admin/tenants/add") ?>">Add landlord</a>
+             </div>
+         </div>
+     </li>
+     <!-- Nav Item - Tenants Collapse Menu -->
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities10" aria-expanded="true" aria-controls="collapseUtilities10">
+             <i class="fas fa-fw fa-users"></i>
+             <span>Tenants</span>
+
+         </a>
+         <div id="collapseUtilities10" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
                  <a class="collapse-item" href="<?= base_url("admin/tenants/manage") ?>">Manage tenants</a>
+                 <a class="collapse-item" href="<?= base_url("admin/tenants/add") ?>">Add tenants</a>
              </div>
          </div>
      </li>
@@ -65,6 +80,7 @@
          <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <a class="collapse-item" href="<?= base_url("admin/property/manage") ?>">Manage properties</a>
+                 <a class="collapse-item" href="<?= base_url("admin/property/add") ?>">Add properties</a>
              </div>
          </div>
      </li>

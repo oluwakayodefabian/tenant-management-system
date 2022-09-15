@@ -20,7 +20,7 @@ class Tenants extends BaseController
 
     public function add_tenants()
     {
-        $data = ['title' => 'Members|Add'];
+        $data = ['title' => 'Tenants|Add'];
         $propertiesModel = new PropertiesModel();
         $data['properties'] = $propertiesModel->findAll();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
