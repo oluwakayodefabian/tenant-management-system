@@ -55,7 +55,10 @@ $routes->group('admin', function ($routes) {
     $routes->get("tenants/manage", "Admin\Tenants::manage_tenants");
     $routes->match(['get', 'post'], "tenants/add", "Admin\Tenants::add_tenants");
     $routes->match(['get', 'post'], "tenants/edit", "Admin\Tenants::edit_tenants");
+    $routes->get("landlords/manage", "Admin\Landlord::manage_landlords");
+    $routes->match(['get', 'post'], "landlord/add", "Admin\Landlord::add_landlord");
     $routes->add("property/manage", "Admin\Property::manage_properties");
+    $routes->add("property/fetch_properties", "Admin\Property::fetch_properties");
     $routes->match(['get', 'post'], "property/add", "Admin\Property::add_property");
     $routes->add("property/fetch_properties", "Admin\Property::fetch_properties");
 });

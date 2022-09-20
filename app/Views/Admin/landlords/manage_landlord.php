@@ -27,8 +27,6 @@
                         </div>
                     <?php endif; ?>
                 </div>
-
-                <a href="<?= base_url("admin/property/add") ?>" class="btn btn-primary btn-lg">Add Property</a>
                 <!-- Page Heading -->
                 <h1 class="h3 m-4 text-gray-800">Manage Properties</h1>
                 <?php if (session()->get('admin') != 'super_admin') : ?>
@@ -49,13 +47,12 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Property Name</th>
                                         <th scope="col">Location</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Annual Rent</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Tenant</th>
-                                        <!-- <th scope="col" colspan="1">Action</th> -->
+                                        <th scope="col" colspan="1">Action</th>
                                     </tr>
                                 </thead>
                             </table>

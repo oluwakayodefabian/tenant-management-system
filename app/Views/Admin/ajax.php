@@ -97,3 +97,86 @@
         }
     })
 </script>
+
+
+
+<?php if ($title == 'admin|property|manage') : ?>
+    <script>
+        $(document).ready(function() {
+            $('#propertyTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '<?= base_url('admin/property/fetch_properties') ?>',
+                columnDefs: [{
+                        targets: -1,
+                        orderable: false
+                    }, //target -1 means last column
+                ]
+            });
+
+            // Delete Member
+            $(document).on("click", "#deleteMember", function() {
+                let meta = document.querySelectorAll("meta")[0];
+                let tokenHash = meta.content;
+                const deleteID = $(this).attr('value');
+                console.log(deleteID)
+                if (deleteID == '') {
+                    alert("Id cannot be empty!");
+                } else {
+                    const swalWithBootstrapButtons = Swal.mixin({
+                        customClass: {
+                            confirmButton: 'btn btn-success',
+                            cancelButton: 'btn btn-danger mr-3'
+                        },
+                        buttonsStyling: false
+                    })
+
+                    swalWithBootstrapButtons.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it!',
+                        cancelButtonText: 'No, cancel!',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                // Pass the CSRF token to the header to allow AJAX functionality
+                                headers: {
+                                    'X-CSRF-Token': tokenHash
+                                },
+                                url: "<?= base_url("admin/member/delete") ?>",
+                                dataType: "json",
+                                method: "POST",
+                                data: {
+                                    deleteID: deleteID
+                                },
+                                success: function(data) {
+                                    if (data.response == 'success') {
+                                        swalWithBootstrapButtons.fire(
+                                            'Deleted!',
+                                            'A Member\' information has been deleted.',
+                                            'success'
+                                        )
+                                        window.location = "<?= base_url('admin/member/manage') ?>"
+                                    }
+                                }
+                            })
+
+                        } else if (
+                            /* Read more about handling dismissals below */
+                            result.dismiss === Swal.DismissReason.cancel
+                        ) {
+                            swalWithBootstrapButtons.fire(
+                                'Cancelled',
+                                'Member is safe :)',
+                                'error'
+                            )
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

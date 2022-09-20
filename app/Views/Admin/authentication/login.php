@@ -1,7 +1,7 @@
 <?= $this->extend("layouts/admin_layout") ?>
 <?= $this->section('admin-contents') ?>
 
-<div class="container">
+<div class="container" style="background: url(/assets/img/bg.jpg);">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">

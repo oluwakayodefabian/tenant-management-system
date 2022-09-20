@@ -41,6 +41,17 @@
                                     </div>
                                     <?= form_open_multipart(base_url('admin/property/add'), ["class" => "user", 'id' => "property_form"]) ?>
                                     <div class="form-group row">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <label for="property_name">Name of property<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control form-control-user" id="country" name="property_name" placeholder="Enter name of property" value="<?= set_value('property_name') ?>" />
+                                            <?php if (isset($validation)) : ?>
+                                                <?php if ($validation->hasError('property_name')) : ?>
+                                                    <small class="form-text text-danger"><?= $validation->getError('property_name') ?></small>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="country">Country<span class="text-danger">*</span></label>
                                             <input type="text" class="form-control form-control-user" id="country" name="country" placeholder="Enter Country name" value="<?= set_value('country') ?>" />

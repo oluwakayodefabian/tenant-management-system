@@ -49,8 +49,8 @@
          </a>
          <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
-                 <a class="collapse-item" href="<?= base_url("admin/tenants/manage") ?>">View landlords</a>
-                 <a class="collapse-item" href="<?= base_url("admin/tenants/add") ?>">Add landlord</a>
+                 <a class="collapse-item" href="<?= base_url("admin/landlords/manage") ?>">View landlords</a>
+                 <a class="collapse-item" href="<?= base_url("admin/landlord/add") ?>">Add landlord</a>
              </div>
          </div>
      </li>

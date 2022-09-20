@@ -311,6 +311,12 @@ class Validation
      * ----------------------_____________-----------------------------------
      */
     public array $validate_add_property = [
+        'property_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The name of the property is required',
+            ]
+        ],
         'country' => [
             'rules'  => 'required',
             'errors' => [
@@ -412,6 +418,69 @@ class Validation
             ]
         ],
 
+        'property_id' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You need to assign a property to the tenant',
+            ]
+        ],
+    ];
+
+    public array $add_landlord = [
+        'title' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Title is required',
+            ]
+        ],
+        'first_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s first name is required',
+            ]
+        ],
+        'last_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s last name is required',
+            ]
+        ],
+        'gender' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You forgot to pick the Landlord\'s gender',
+            ]
+        ],
+        'email_address' => [
+            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'errors' => [
+                'required' => 'Landlord\'s email address is required',
+            ]
+        ],
+        'state' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s state of origin is required',
+            ]
+        ],
+        'lga' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s local govt. area is required',
+            ]
+        ],
+        'phone_number' => [
+            'rules'  => 'required|numeric',
+            'errors' => [
+                'required' => 'Landlord\'s phone_number is required',
+            ]
+        ],
+        'rent_amount' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The Amount for annual rent is required',
+            ]
+        ],
         'property_id' => [
             'rules'  => 'required',
             'errors' => [
