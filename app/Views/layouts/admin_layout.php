@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Oluwakayode Fabian">
+    <meta name="author" content="Abdulkadri Zinat">
 
     <title>Admin|<?= $title ?></title>
 
@@ -32,7 +33,25 @@
 
     <!-- Place Custom Favicon here -->
     <!-- <link rel="shortcut icon" href="<?= base_url("assets/images/favicon.png") ?>" type="image/png"> -->
+    <style>
+        .expire-container {
+            overflow: hidden;
+        }
 
+        .expire {
+            animation: animate 7000ms ease-in infinite;
+        }
+
+        @keyframes animate {
+            from {
+                transform: translateX(-40%);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -147,6 +166,55 @@
                     icon.classList.add('fa-eye');
                     icon.classList.remove('fa-eye-slash')
                 }
+            })
+        </script>
+        <?php if (errorMessage()) : ?>
+            <script>
+                alertify.alert('Error', "<?= errorMessage() ?>", function() {
+                    alertify.error('Only authorized users can see the requested page');
+                });
+            </script>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if ($title == 'Tenant Details') : ?>
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    url: `<?= base_url("admin/tenant/fetch_rent_date/$tenant->unique_id") ?>`,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data)
+                        setInterval(() => {
+                            const countDate = new Date(data.end).getTime();
+                            const currentTime = new Date().getTime();
+                            const getGap = countDate - currentTime;
+                            console.log(getGap);
+
+                            // HOW DOES TIME WORK🤔
+                            const second = 1000; // A 1000 milliseconds makes a second
+                            const minute = second * 60;
+                            const hour = minute * 60;
+                            const day = hour * 24;
+
+                            // CALCULATE
+                            const getDayText = Math.floor(getGap / day);
+                            const getHourText = Math.floor((getGap % day) / hour);
+                            const getMinuteText = Math.floor((getGap % hour) / minute);
+                            const getSecondText = Math.floor((getGap % minute) / second);
+
+                            document.querySelector(".day").innerText = getDayText;
+                            document.querySelector(".hour").innerText = getHourText;
+                            document.querySelector(".minute").innerText = getMinuteText;
+                            document.querySelector(".second").innerText = getSecondText;
+                            console.log(getGap);
+                            //   if (getGap < 10000) {
+                            //     document.body.remove();
+                            //   }
+                        }, 1000);
+                    }
+                })
             })
         </script>
     <?php endif; ?>

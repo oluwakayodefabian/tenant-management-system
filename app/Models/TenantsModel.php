@@ -14,7 +14,7 @@ class TenantsModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['property_id', 'agent_id', 'first_name', 'last_name', 'email', 'tenant_username', 'password', 'gender', 'state', 'lga', 'phone_no', 'unique_id', 'created_on', 'rent_starting_date', 'rent_ending_date'];
+    protected $allowedFields    = ['property_id', 'agent_id', 'title', 'first_name', 'last_name', 'email', 'tenant_username', 'password', 'gender', 'state', 'lga', 'phone_no', 'unique_id', 'created_on', 'rent_starting_date', 'rent_ending_date'];
 
     // Dates
     protected $useTimestamps = false;

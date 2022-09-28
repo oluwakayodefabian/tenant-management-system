@@ -29,31 +29,13 @@
                 </div>
                 <!-- Page Heading -->
                 <h1 class="h3 m-4 text-gray-800">Manage Tenants</h1>
-                <?php if (session()->get('admin') != 'super_admin') : ?>
-                    <!-- Button trigger modal -->
-                    <a href="<?= base_url('admin/tenants/add') ?>" class="btn btn-info my-5 mx-4">
-                        Add a Tenant
-                    </a>
-                <?php endif; ?>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-info">List of Tenants</h6>
+                        <h6 class="m-0 font-weight-bold text-info">Rent Due Dates For Tenants</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive-sm">
-                            <table class="table table-striped table-hover" id="tenantTable">
-                                <caption>List of Tenants</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Tenant Name</th>
-                                        <th scope="col">Date Created</th>
-                                    </tr>
-                                </thead>
-
-                            </table>
-                        </div>
+                        <?= $tenants_with_expiry_dates ?>
                     </div>
                 </div>
 

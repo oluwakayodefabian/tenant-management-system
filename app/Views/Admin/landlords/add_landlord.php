@@ -182,34 +182,9 @@
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         </div>
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="admin">Select a Property that belongs to the landlord</label>
-                                            <select class="custom-select" id="property_id" name="property_id">
-                                                <option value=""></option>
-                                                <?php foreach ($properties as $property) : ?>
-                                                    <option value="<?= $property->property_id ?>"><?= $property->property_name ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-
-                                            <small id="propertyHelpBlock" class="form-text text-primary">
-                                                You can select a Property that the belongs to a landlord
-                                            </small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0 row border-right mr-2">
-                                            <div class="col-sm-6">
-                                                <label for="rent_amount">Annual Rent Amount set by landlord<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="rent_amount" name="rent_amount" value="<?= set_value('rent_amount') ?>">
-                                                <?php if (isset($validation)) : ?>
-                                                    <?php if ($validation->hasError('rent_amount')) : ?>
-                                                        <small class="form-text text-danger"><?= $validation->getError('rent_amount') ?></small>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
                                     </div>
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Add Landlord" id="add_user_btn">
+                                    <?= form_close() ?>
                                     <hr>
                                     <a href="<?= base_url('admin/landlords/manage') ?>" role="button" class="btn btn-info btn-user btn-block">Cancel Action</a>
                                 </div>

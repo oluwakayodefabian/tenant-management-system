@@ -158,6 +158,12 @@ class Validation
      * ----------------------_____________-----------------------------------
      */
     public array $add_tenant = [
+        'title' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Title is required',
+            ]
+        ],
         'first_name' => [
             'rules'  => 'required',
             'errors' => [
@@ -177,9 +183,9 @@ class Validation
             ]
         ],
         'email_address' => [
-            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'rules'  => 'permit_empty|is_unique[tenants.email]|valid_email',
             'errors' => [
-                'required' => 'Tenant\'s email address is required',
+                'is_unique' => 'That email already exists',
             ]
         ],
         'state' => [
@@ -231,7 +237,13 @@ class Validation
             ]
         ],
     ];
-    public array $edit_tenant = [
+    public array $validate_edit_tenant = [
+        'title' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Title is required',
+            ]
+        ],
         'first_name' => [
             'rules'  => 'required',
             'errors' => [
@@ -251,9 +263,9 @@ class Validation
             ]
         ],
         'email_address' => [
-            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'rules'  => 'permit_empty|valid_email',
             'errors' => [
-                'required' => 'Tenant\'s email address is required',
+                'valid_email' => 'Tenant\'s email address is not valid',
             ]
         ],
         'state' => [
@@ -317,6 +329,12 @@ class Validation
                 'required' => 'The name of the property is required',
             ]
         ],
+        'landlord_id' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'The owner of the property is required',
+            ]
+        ],
         'country' => [
             'rules'  => 'required',
             'errors' => [
@@ -335,12 +353,7 @@ class Validation
                 'required' => 'The city where the property is located is required',
             ]
         ],
-        'address' => [
-            'rules'  => 'required',
-            'errors' => [
-                'required' => 'The address of the property is needed',
-            ]
-        ],
+
         'address' => [
             'rules'  => 'required',
             'errors' => [
@@ -365,63 +378,69 @@ class Validation
                 'required' => 'There\'s no description for the property',
             ]
         ],
-        'property_image' => [
-            'rules'  => 'uploaded[property_image]|max_size[property_image, 1024]|is_image[property_image]|mime_in[property_image, image/png, image/jpg,image/jpeg]|ext_in[property_image,png,jpg,gif]',
-            'errors' => [
-                'uploaded'                => 'No file uploaded',
-                'max_size[file, 1024]'     => 'Oops, you can\'t upload a file that is more than 1mb',
-                'is_image[file]'         => 'Only Images can be uploaded'
-            ]
-        ],
+        // 'property_image' => [
+        //     'rules'  => 'uploaded[property_image]|max_size[property_image, 1024]|is_image[property_image]|mime_in[property_image, image/png, image/jpg,image/jpeg]|ext_in[property_image,png,jpg,gif]',
+        //     'errors' => [
+        //         'uploaded'                => 'No file uploaded',
+        //         'max_size[file, 1024]'     => 'Oops, you can\'t upload a file that is more than 1mb',
+        //         'is_image[file]'         => 'Only Images can be uploaded'
+        //     ]
+        // ],
     ];
     public array $validate_edit_property = [
-        'first_name' => [
+        'property_name' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Member\'s first name is required',
+                'required' => 'The name of the property is required',
             ]
         ],
-        'last_name' => [
+        'landlord_id' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Member\'s last name is required',
+                'required' => 'The owner of the property is required',
             ]
         ],
-        'gender' => [
+        'country' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'You forgot to pick the tenant\'s gender',
-            ]
-        ],
-        'email_address' => [
-            'rules'  => 'required|is_unique[tenants.email]|valid_email',
-            'errors' => [
-                'required' => 'Tenant\'s email address is required',
+                'required' => 'The country where the property is located is required',
             ]
         ],
         'state' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Tenant\'s state of origin is required',
+                'required' => 'The state where the property is located is required',
             ]
         ],
-        'lga' => [
+        'city' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'Tenant\'s local govt. area is required',
-            ]
-        ],
-        'phone_number' => [
-            'rules'  => 'required|numeric',
-            'errors' => [
-                'required' => 'Tenant\'s phone_number is required',
+                'required' => 'The city where the property is located is required',
             ]
         ],
 
-        'property_id' => [
+        'address' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'You need to assign a property to the tenant',
+                'required' => 'The address of the property is needed',
+            ]
+        ],
+        'rent_amount' => [
+            'rules'  => 'required|numeric',
+            'errors' => [
+                'required' => 'The amount to rent the property is required',
+            ]
+        ],
+        'description' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'There\'s no description for the property',
+            ]
+        ],
+        'property_status' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'There\'s no description for the property',
             ]
         ],
     ];
@@ -452,9 +471,9 @@ class Validation
             ]
         ],
         'email_address' => [
-            'rules'  => 'required|is_unique[tenants.email]|valid_email',
+            'rules'  => 'permit_empty|is_unique[tenants.email]|valid_email',
             'errors' => [
-                'required' => 'Landlord\'s email address is required',
+                'is_unique' => 'Sorry, that email address has been taken',
             ]
         ],
         'state' => [
@@ -475,16 +494,67 @@ class Validation
                 'required' => 'Landlord\'s phone_number is required',
             ]
         ],
-        'rent_amount' => [
+        // 'rent_amount' => [
+        //     'rules'  => 'required',
+        //     'errors' => [
+        //         'required' => 'The Amount for annual rent is required',
+        //     ]
+        // ],
+        // 'property_id' => [
+        //     'rules'  => 'required',
+        //     'errors' => [
+        //         'required' => 'You need to assign a property to the tenant',
+        //     ]
+        // ],
+    ];
+
+    public array $edit_landlord = [
+        'title' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'The Amount for annual rent is required',
+                'required' => 'Title is required',
             ]
         ],
-        'property_id' => [
+        'first_name' => [
             'rules'  => 'required',
             'errors' => [
-                'required' => 'You need to assign a property to the tenant',
+                'required' => 'Landlord\'s first name is required',
+            ]
+        ],
+        'last_name' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s last name is required',
+            ]
+        ],
+        'gender' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'You forgot to pick the Landlord\'s gender',
+            ]
+        ],
+        'email_address' => [
+            'rules'  => 'permit_empty|valid_email',
+            'errors' => [
+                'is_unique' => 'Sorry, that email address has been taken',
+            ]
+        ],
+        'state' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s state of origin is required',
+            ]
+        ],
+        'lga' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Landlord\'s local govt. area is required',
+            ]
+        ],
+        'phone_number' => [
+            'rules'  => 'required|numeric',
+            'errors' => [
+                'required' => 'Landlord\'s phone_number is required',
             ]
         ],
     ];

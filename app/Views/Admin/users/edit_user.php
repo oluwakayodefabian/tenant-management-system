@@ -60,11 +60,11 @@
                                                 <select class="custom-select" id="role" name="role">
                                                     <?php switch ($user->admin_type):
                                                         case 'super_admin':
-                                                            echo "<option value='main_admin' selected>super admin</option>";
-                                                            echo "<option value='sub_admin'>sub admin</option>";
+                                                            echo "<option value='super_admin' selected>super admin</option>";
+                                                            echo "<option value='agent'>agent</option>";
                                                             break;
-                                                        case 'sub_admin':
-                                                            echo "<option value='sub_admin' selected>sub admin</option>";
+                                                        case 'agent':
+                                                            echo "<option value='agent' selected>agent</option>";
                                                             echo "<option value='super_admin'>super admin</option>";
                                                             break;
                                                     endswitch; ?>

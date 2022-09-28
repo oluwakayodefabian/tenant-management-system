@@ -28,6 +28,7 @@ class Authentication extends BaseController
 
         $validation = \Config\Services::validation();
         $data = ["title" => "Register"];
+        $data['tenants_with_expiry_dates'] = $this->fetch_expiry_dates();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Validation rules

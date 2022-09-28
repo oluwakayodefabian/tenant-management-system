@@ -180,3 +180,37 @@
         });
     </script>
 <?php endif; ?>
+
+<?php if ($title == 'admin|landlord|manage') : ?>
+    <script>
+        $(document).ready(function() {
+            $('#landlordTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '<?= base_url('admin/landlord/fetch_landlords') ?>',
+                columnDefs: [{
+                        targets: -1,
+                        orderable: false
+                    }, //target -1 means last column
+                ]
+            });
+        });
+    </script>
+<?php endif; ?>
+
+<?php if ($title == 'Admin|Manage|Tenants') : ?>
+    <script>
+        $(document).ready(function() {
+            $('#tenantTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '<?= base_url('admin/tenant/fetch_tenants') ?>',
+                columnDefs: [{
+                        targets: -1,
+                        orderable: false
+                    }, //target -1 means last column
+                ]
+            });
+        });
+    </script>
+<?php endif; ?>

@@ -53,10 +53,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="admin_username">Username</label>
-                                            <input type="text" class="form-control form-control-user" id="admin_username" name="admin_username" placeholder="Enter username" value="username<?= uniqid() ?>" />
-                                            <small id="usernameHelpBlock" class="form-text text-primary">
-                                                The username above was generated automatically be the system. You can change it to a preferred username of your choice.
-                                            </small>
+                                            <input type="text" class="form-control form-control-user" id="admin_username" name="admin_username" placeholder="Enter username" value="<?= set_value('admin_username') ?>" />
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="admin_email">Email</label>
@@ -66,10 +63,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="admin_password">Password</label>
-                                            <input type="text" class="form-control form-control-user" id="admin_password" name="admin_password" placeholder="Password" value="<?= uniqid(random_string('md5')) ?>">
-                                            <small id="passwordHelpBlock" class="form-text text-primary">
-                                                The password above was generated automatically be the system. But can be change_password to user preference
-                                            </small>
+                                            <input type="text" class="form-control form-control-user" id="admin_password" name="admin_password" placeholder="Password">
                                         </div>
                                         <div class="col-sm-6">
                                             <label for="admin">Choose a role for the user</label>

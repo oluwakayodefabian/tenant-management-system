@@ -38,21 +38,18 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-info">List of Properties</h6>
+                        <h6 class="m-0 font-weight-bold text-info">List of Lanlords</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm">
-                            <table class="table table-striped table-hover" id="propertyTable">
-                                <caption>List of Properties</caption>
+                            <table class="table table-striped table-hover" id="landlordTable">
+                                <caption>List of Landlords</caption>
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Annual Rent</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Tenant</th>
-                                        <th scope="col" colspan="1">Action</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Date Created</th>
                                     </tr>
                                 </thead>
                             </table>

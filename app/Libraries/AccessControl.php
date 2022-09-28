@@ -31,7 +31,7 @@ class AccessControl
     {
         if (!$this->session->has('admin')) {
             $this->session->setFlashdata('error', 'UNAUTHORIZED');
-            $this->redirect->redirect(base_url('admin/login'));
+            $this->redirect->redirect(base_url());
         }
     }
 
@@ -56,18 +56,6 @@ class AccessControl
                 $this->redirect->redirect(base_url('admin/dashboard'));
             } else {
                 die("Forbidden!");
-            }
-        }
-    }
-    public function log_customer_in($customer)
-    {
-        if ($customer) {
-            $this->session->set('customer_id', $customer->customer_id);
-            $this->session->set('customer_fullname', $customer->full_name);
-            $this->session->set('customerEmail', $customer->customer_email);
-            if (isset($customer->customer_id)) {
-                $this->session->setFlashdata('success', 'Welcome ' . $customer->full_name . ' You are now logged in');
-                $this->redirect->redirect(base_url('customer/dashboard'));
             }
         }
     }

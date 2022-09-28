@@ -14,7 +14,7 @@ class PropertiesModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['admin_id', 'landlord_id', 'property_name', 'unique_id', 'country', 'state', 'city', 'address', 'description', 'rent_amount', 'property_image', 'property_image', 'property_status'];
+    protected $allowedFields    = ['admin_id', 'landlord_id', 'property_name', 'unique_id', 'country', 'state', 'city', 'address', 'description', 'rent_amount', 'property_status'];
 
     // Dates
     protected $useTimestamps = false;

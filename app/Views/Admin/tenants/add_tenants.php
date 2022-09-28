@@ -35,7 +35,31 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Add a Tenant!</h1>
                                     </div>
-                                    <?= form_open(base_url('admin/tenants/add'), ["class" => "user", 'id' => "add_tenant_form"]) ?>
+                                    <?= form_open(base_url('admin/tenants/update'), ["class" => "user", 'id' => "add_tenant_form"]) ?>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-check">
+                                                <p class="lead">Choose a title</p>
+                                                <input class="form-check-input" type="radio" name="title" id="title" value="mr" <?= set_radio('title', 'mr') ?>>
+                                                <label class="form-check-label" for="title">
+                                                    MR
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <!-- <p class="lead">Choose a title</p> -->
+                                                <input class="form-check-input" type="radio" name="title" id="title" value="mrs" <?= set_radio('title', 'mrs') ?>>
+                                                <label class="form-check-label" for="title">
+                                                    MRS
+                                                </label>
+                                            </div>
+
+                                            <?php if (isset($validation)) : ?>
+                                                <?php if ($validation->hasError('title')) : ?>
+                                                    <small class="form-text text-danger"><?= $validation->getError('title') ?></small>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="first_name">First Name</label>
@@ -161,9 +185,9 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="admin">Select a Property</label>
                                             <select class="custom-select" id="property_id" name="property_id">
+                                                <option value="">--Select a property for the tenant--</option>
                                                 <?php foreach ($properties as $property) : ?>
-                                                    <option value=""></option>
-                                                    <option value="<?= $property->property_ ?>"><?= $property->address ?></option>
+                                                    <option value="<?= $property->property_id ?>"><?= $property->property_name ?></option>
                                                 <?php endforeach; ?>
                                             </select>
 
@@ -217,6 +241,7 @@
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Add tenant" id="add_user_btn">
                                     <hr>
                                     <a href="<?= base_url('admin/tenant/manage') ?>" role="button" class="btn btn-info btn-user btn-block">Cancel Action</a>
+                                    </form>
                                 </div>
                             </div>
                         </div>

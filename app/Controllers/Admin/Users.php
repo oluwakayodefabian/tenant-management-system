@@ -29,6 +29,7 @@ class Users extends BaseController
         $this->accessControl->check_if_user_is_the_main_admin();
 
         $data = ["title" => "Users | manage"];
+        $data['tenants_with_expiry_dates'] = $this->fetch_expiry_dates();
 
         return view("admin/users/manageUsers", $data);
     }
@@ -97,12 +98,13 @@ class Users extends BaseController
 
     public function edit($uniqueID)
     {
-        $data = ['title' => 'Edit'];
         $this->accessControl->check_if_user_is_logged_in();
         $this->accessControl->check_if_user_is_admin();
         $this->accessControl->check_if_user_is_the_main_admin();
-        $data['user'] = $this->model->builder()->getWhere(['unique_id' => $uniqueID])->getRow();
 
+        $data = ['title' => 'Edit'];
+        $data['user'] = $this->model->builder()->getWhere(['unique_id' => $uniqueID])->getRow();
+        $data['tenants_with_expiry_dates'] = $this->fetch_expiry_dates();
         return view('admin/users/edit_user', $data);
     }
 
@@ -123,9 +125,10 @@ class Users extends BaseController
 
     public function change_password($uniqueID = null)
     {
-        $data = ['title' => "Change_password"];
         $this->accessControl->check_if_user_is_logged_in();
         $this->accessControl->check_if_user_is_admin();
+        $data = ['title' => "Change_password"];
+        $data['tenants_with_expiry_dates'] = $this->fetch_expiry_dates();
         $validation     = \Config\Services::validation();
 
         $adminModel = new AdminUserModel();
@@ -202,6 +205,7 @@ class Users extends BaseController
             die('No login activity for this user yet!');
         } else {
             $data['user_login_activity'] = $user_login_details;
+            $data['tenants_with_expiry_dates'] = $this->fetch_expiry_dates();
             return view("admin/users/login_activity", $data);
         }
     }

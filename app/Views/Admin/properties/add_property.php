@@ -150,7 +150,7 @@
                                             <?php endif; ?>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label for="property_status">Choose a role for the user<span class="text-danger">*</span></label>
+                                            <label for="property_status">Property Status<span class="text-danger">*</span></label>
                                             <select class="custom-select" id="property_status" name="property_status">
                                                 <option value="vacant">Vacant</option>
                                                 <option value="occupied">Occupied</option>
@@ -162,18 +162,23 @@
                                             <?php endif; ?>
                                         </div>
                                     </div>
-
-                                    <div class="form-group w-100 mt-3">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <label for="property_image">add an image of the property<span class="text-danger">*</span></label>
-                                            <input type="file" class="form-control" id="property_image" name="property_image">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            <label for="landlord_id">Landlord<span class="text-danger">*</span></label>
+                                            <select class="custom-select" id="landlord_id" name="landlord_id">
+                                                <option value="">Choose the landlord for this property</option>
+                                                <?php foreach ($landlords as $landlord) : ?>
+                                                    <option value="<?= $landlord->landlord_id ?>"><?= $landlord->first_name . ' ' . $landlord->last_name ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                             <?php if (isset($validation)) : ?>
-                                                <?php if ($validation->hasError('property_image')) : ?>
-                                                    <small class="form-text text-danger"><?= $validation->getError('property_image') ?></small>
+                                                <?php if ($validation->hasError('landlord_id')) : ?>
+                                                    <small class="form-text text-danger"><?= $validation->getError('landlord_id') ?></small>
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         </div>
                                     </div>
+
                                     <input type="submit" class="btn btn-primary btn-user btn-block mb-3" value="Add property" id="add_property_btn">
                                     <hr>
                                     <a href="<?= base_url('admin/property/manage') ?>" class="btn btn-info btn-user btn-block">Cancel</a>

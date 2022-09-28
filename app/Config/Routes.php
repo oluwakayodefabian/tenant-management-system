@@ -38,6 +38,8 @@ $routes->match(['get', 'post'], "/", "Authentication::login");
 
 $routes->group('admin', function ($routes) {
     $routes->get("dashboard", "Admin\Dashboard::index");
+    $routes->get("tenant/fetch_expiry_dates", "Admin\Dashboard::fetch_expiry_dates");
+
     $routes->match(['get', 'post'], "register", "Authentication::register");
     $routes->add("forget_password", "Authentication::forget_password");
     $routes->add("change_password/(:any)", "Authentication::change_password/$1");
@@ -54,13 +56,25 @@ $routes->group('admin', function ($routes) {
     $routes->match(['get', 'post'], "users/change_password/(:any)", "Admin\Users::change_password/$1");
     $routes->get("tenants/manage", "Admin\Tenants::manage_tenants");
     $routes->match(['get', 'post'], "tenants/add", "Admin\Tenants::add_tenants");
-    $routes->match(['get', 'post'], "tenants/edit", "Admin\Tenants::edit_tenants");
+    $routes->get("tenant/fetch_tenants", "Admin\Tenants::fetch_tenants");
+    $routes->get("tenant/details/(:alphanum)", "Admin\Tenants::tenant_details/$1");
+    $routes->post("tenant/update/details/(:alphanum)", "Admin\Tenants::update_tenant_details/$1");
+    $routes->get("tenant/fetch_rent_date/(:alphanum)", "Admin\Tenants::fetch_rent_date/$1");
+    $routes->get("tenant/delete/(:alphanum)", "Admin\Tenants::delete_tenant/$1");
+    $routes->get("tenants/rent/dates", "Admin\Tenants::view_rent_due_dates");
+
     $routes->get("landlords/manage", "Admin\Landlord::manage_landlords");
     $routes->match(['get', 'post'], "landlord/add", "Admin\Landlord::add_landlord");
+    $routes->get("landlord/fetch_landlords", "Admin\Landlord::fetch_landlords");
+    $routes->get("landlord/details/(:alphanum)", "Admin\Landlord::landlord_details/$1");
+    $routes->post("landlord/update/details/(:alphanum)", "Admin\Landlord::update_landlord_details/$1");
     $routes->add("property/manage", "Admin\Property::manage_properties");
     $routes->add("property/fetch_properties", "Admin\Property::fetch_properties");
     $routes->match(['get', 'post'], "property/add", "Admin\Property::add_property");
-    $routes->add("property/fetch_properties", "Admin\Property::fetch_properties");
+    $routes->get("property/fetch_properties", "Admin\Property::fetch_properties");
+    $routes->get("property/details/(:alphanum)", "Admin\Property::property_details/$1");
+    $routes->post("property/update/(:alphanum)", "Admin\Property::update_property_details/$1");
+    $routes->get("property/delete/(:alphanum)", "Admin\Property::delete_property/$1");
 });
 /*
  * --------------------------------------------------------------------

@@ -31,8 +31,8 @@
              </a>
              <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
-                     <a class="collapse-item" href="<?= base_url("admin/register") ?>">create Admin</a>
-                     <a class="collapse-item" href="<?= base_url("admin/users/manage") ?>">Manage Admin</a>
+                     <a class="collapse-item" href="<?= base_url("admin/register") ?>">create Agent</a>
+                     <a class="collapse-item" href="<?= base_url("admin/users/manage") ?>">Manage Agents</a>
                  </div>
              </div>
          </li>

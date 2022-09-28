@@ -49,12 +49,13 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
+                                        <!-- <th scope="col">Landlord Name</th> -->
                                         <th scope="col">Property Name</th>
-                                        <th scope="col">Location</th>
                                         <th scope="col">Address</th>
-                                        <th scope="col">Annual Rent</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Tenant</th>
+                                        <!-- <th scope="col">Location</th> -->
+                                        <th scope="col">Annual Rent</th>
+                                        <th scope="col">property status</th>
                                         <!-- <th scope="col" colspan="1">Action</th> -->
                                     </tr>
                                 </thead>
