@@ -38,6 +38,7 @@ $routes->match(['get', 'post'], "/", "Authentication::login");
 
 $routes->group('admin', function ($routes) {
     $routes->get("dashboard", "Admin\Dashboard::index");
+    $routes->get("generate/report", "Admin\Dashboard::generate_report");
     $routes->get("tenant/fetch_expiry_dates", "Admin\Dashboard::fetch_expiry_dates");
 
     $routes->match(['get', 'post'], "register", "Authentication::register");
